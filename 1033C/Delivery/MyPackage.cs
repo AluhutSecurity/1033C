@@ -27,12 +27,12 @@ namespace _1033C.Delivery {
 
 
         public static bool operator==(MyPackage a, MyPackage b) {
-            if ( null == a || null == b ) return false;
+            if ( null == ( object ) a || null == ( object ) b ) return false;
             return a.UID == b.UID;
         }
 
         public static bool operator!=(MyPackage a, MyPackage b) {
-            if ( null == a || null == b ) return false;
+            if ( null == ( object ) a || null == ( object ) b ) return false;
             return a.UID != b.UID;
         }
 
