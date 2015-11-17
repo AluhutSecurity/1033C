@@ -50,6 +50,7 @@ namespace _1033C.Drones {
                         affectedDrone = new MyDrone( client.UID, MyDroneState.Online );
                         this.drones.Add( affectedDrone );
                     }
+                    affectedDrone.State = MyDroneState.Online;
                     if ( this.DroneStatusChanged != null ) this.DroneStatusChanged( this, affectedDrone );
                     break;
                 case BlakcMakiga.Net.BlakcClientStatus.Unknown:
