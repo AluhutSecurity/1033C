@@ -11,7 +11,16 @@ namespace _1033C.Drones {
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public DateTime LastUpdate { get; private set; }
+        private DateTime lastUpdate;
+        public DateTime LastUpdate {
+            get {
+                return this.lastUpdate;
+            }
+            private set {
+                this.lastUpdate = value;
+                if ( this.PropertyChanged != null ) this.PropertyChanged( this, new PropertyChangedEventArgs( nameof( LastUpdate ) ) );
+            }
+        }
 
         private Delivery.MyPackage package;
         public Delivery.MyPackage Package {
@@ -19,7 +28,7 @@ namespace _1033C.Drones {
                 return this.package;
             }
             set {
-                if(this.package != value ) {
+                if ( this.package != value ) {
                     this.package = value;
                     this.LastUpdate = DateTime.Now;
                     if ( this.PropertyChanged != null ) this.PropertyChanged( this, new PropertyChangedEventArgs( nameof( Package ) ) );
@@ -40,7 +49,7 @@ namespace _1033C.Drones {
         }
 
         private Location.MyGPSPosition position;
-        
+
         public Location.MyGPSPosition Position {
             get {
                 return this.position;
@@ -56,7 +65,7 @@ namespace _1033C.Drones {
 
         public float Capacity => Defines.MAX_PACKAGE_WEIGHT;
 
-        public MyDrone(ulong uid) {
+        public MyDrone( ulong uid ) {
             this.UID = uid;
             this.state = MyDroneState.Online;
             LastUpdate = DateTime.Now;
