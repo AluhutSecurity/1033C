@@ -17,7 +17,7 @@ namespace _1033C.Location {
 
 
         public static bool operator !=( MyGPSPosition a, MyGPSPosition b ) {
-            if ( null == ( object ) a || null == ( object ) b ) return false;
+            if ( null == ( object ) a || null == ( object ) b ) return true;
             return ( a.Altitude != b.Altitude ) || ( a.Latitude != b.Latitude ) || ( a.Longitude != b.Longitude );
         }
         public static bool operator ==( MyGPSPosition a, MyGPSPosition b ) {
@@ -25,6 +25,13 @@ namespace _1033C.Location {
             return ( a.Altitude == b.Altitude ) && ( a.Latitude == b.Latitude ) && ( a.Longitude == b.Longitude );
         }
 
+        public override bool Equals( object obj ) {
+            return base.Equals( obj );
+        }
+
+        public override int GetHashCode() {
+            return base.GetHashCode();
+        }
 
         public MyGPSPosition( double altitude, double latitude, double longitude ) {
             this.Altitude = altitude;
