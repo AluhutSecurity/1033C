@@ -27,7 +27,7 @@ namespace _1033C.Drones {
         public byte[] Data { get; private set; }
 
         public byte[] Serialize() {
-            if(this.Data == null ) {
+            if(null == this.Data ) {
                 return BitConverter.GetBytes( this.CRC ).Concat( BitConverter.GetBytes( ( ushort ) this.ContentID ) ).ToArray();
             } 
             return BitConverter.GetBytes( this.CRC ).Concat( BitConverter.GetBytes( ( ushort ) this.ContentID ) ).Concat( this.Data ).ToArray();
