@@ -12,15 +12,15 @@ namespace _1033C.Location {
     /// its basicly just an enumeration of waypoints
     /// </summary>
     public class MyFlightPath {
-        private List<MyGPSLocation> path;
+        private List<MyGPSPosition> path;
 
-        public IEnumerable<MyGPSLocation> Waypoints => this.path.AsEnumerable();
+        public IEnumerable<MyGPSPosition> Waypoints => this.path.AsEnumerable();
 
         public MyFlightPath() {
-            this.path = new List<MyGPSLocation>();
+            this.path = new List<MyGPSPosition>();
         }
 
-        public MyFlightPath(IEnumerable<MyGPSLocation> waypoints) : this(){
+        public MyFlightPath(IEnumerable<MyGPSPosition> waypoints) : this(){
             this.path.AddRange( waypoints );
         }
     }

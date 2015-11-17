@@ -16,7 +16,7 @@ namespace _1033C.Delivery {
     public class MyAddress {
         public ulong UID { get; }
 
-        public Location.MyGPSLocation LandingLocation { get; }
+        public Location.MyGPSPosition LandingPosition { get; }
 
         public string Name { get; }
 
@@ -28,10 +28,10 @@ namespace _1033C.Delivery {
         
         public string Town { get; }
 
-        internal MyAddress( ulong uid, Location.MyGPSLocation landinglocation, string name, string street, string housenumber, string postalcode, string town ) {
+        internal MyAddress( ulong uid, Location.MyGPSPosition landingposition, string name, string street, string housenumber, string postalcode, string town ) {
             this.UID = uid;
             this.Name = name;
-            this.LandingLocation = landinglocation;
+            this.LandingPosition = landingposition;
             this.Street = street;
             this.PostalCode = postalcode;
             this.Town = town;

@@ -24,8 +24,8 @@ namespace _1033C.Delivery {
         /// <param name="locationserver">Locationservice that allows flightpath calculation for package registration</param>
         /// <exception cref="ArgumentNullException">database and locationserver must not be null</exception>
         public MyPackageManager( Database.MyDeliveryDatabase database, Location.MyLocationServer locationserver ) {
-            if ( database == null ) throw new ArgumentNullException( nameof( database ) );
-            if ( locationserver == null ) throw new ArgumentNullException( nameof( locationserver ) );
+            if ( null == database ) throw new ArgumentNullException( nameof( database ) );
+            if ( null == locationserver ) throw new ArgumentNullException( nameof( locationserver ) );
             this.database = database;
         }
 
@@ -42,12 +42,12 @@ namespace _1033C.Delivery {
         /// <exception cref="ArgumentNullException">recipient must not be null</exception>
         /// <exception cref="ArgumentException">weight must be greater 0 and less than or equal to Defines.MAX_PACKAGE_WEIGHT</exception>
         public bool RegisterPackage( MyAddress recipient, float weight ) {
-            if ( recipient == null ) throw new ArgumentNullException( nameof( recipient ) );
+            if ( null == recipient ) throw new ArgumentNullException( nameof( recipient ) );
             if ( weight < 0 ) throw new ArgumentException( nameof( weight ) + "must be greater than zero." );
             if ( weight > Defines.MAX_PACKAGE_WEIGHT ) throw new ArgumentException( nameof( weight ) + "must be less or equal to maximum supported weight" );
 
             Location.MyFlightPath path = this.locationServer.CalculateFlightPath( recipient, weight );
-            if ( path == null ) return false;
+            if ( null == path ) return false;
 
             var package = this.database.AddPackage( recipient, null, weight );
             package.FlightPath = path;
@@ -70,7 +70,7 @@ namespace _1033C.Delivery {
         public MyPackage GetPackageByUID( ulong uid ) {
             if ( !packages.ContainsKey( uid ) ) {
                 MyPackage package = this.database.GetPackageByUID( uid );
-                if ( package == null ) return null;
+                if ( null == package ) return null;
                 this.packages.Add( package.UID, package );
                 return package;
             }
@@ -88,7 +88,7 @@ namespace _1033C.Delivery {
         /// </returns>
         public bool UpdatePackage( ulong uid, MyPackageState state ) {
             var package = this.GetPackageByUID( uid );
-            if ( packages == null ) return false;
+            if ( null == packages ) return false;
             package.State = state;
             database.UpdatePackage( uid, state );
             return true;

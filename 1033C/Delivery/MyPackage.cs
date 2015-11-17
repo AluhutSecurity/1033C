@@ -25,6 +25,15 @@ namespace _1033C.Delivery {
 
         public Location.MyFlightPath FlightPath { get; internal set; }
 
+
+        public static bool operator==(MyPackage a, MyPackage b) {
+            return a.UID == b.UID;
+        }
+
+        public static bool operator!=(MyPackage a, MyPackage b) {
+            return a.UID != b.UID;
+        }
+
         internal MyPackage( ulong uid ) {
             this.UID = uid;
             this.State = MyPackageState.Registered;

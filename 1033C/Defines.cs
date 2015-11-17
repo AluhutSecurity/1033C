@@ -15,5 +15,9 @@ namespace _1033C {
         /// but as only one drone will be used this is sufficient
         /// </summary>
         public static float MAX_PACKAGE_WEIGHT = 2000;
+
+        public static int DEFAULT_DRONESERVER_LOCALPORT = 60123;
+
+        public static System.Net.IPAddress DEFAULT_DRONESERVER_LOCALIP = System.Net.IPAddress.Any;
     }
 }

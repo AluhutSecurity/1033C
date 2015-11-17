@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BlakcMakiga">
+      <HintPath>..\..\..\Visual Studio 2015\Projects\BlakcMakiga\BlakcMakiga\bin\Debug\BlakcMakiga.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,14 +50,18 @@
     <Compile Include="Delivery\MyPackage.cs" />
     <Compile Include="Delivery\MyPackageManager.cs" />
     <Compile Include="Delivery\MyPackageState.cs" />
+    <Compile Include="Drones\MyDrone.cs" />
+    <Compile Include="Drones\MyDronePacketContent.cs" />
+    <Compile Include="Drones\MyDronePacket.cs" />
+    <Compile Include="Drones\MyDronePacketGenerator.cs" />
+    <Compile Include="Drones\MyDroneServer.cs" />
+    <Compile Include="Drones\MyDroneState.cs" />
     <Compile Include="Location\MyFlightPath.cs" />
-    <Compile Include="Location\MyGPSLocation.cs" />
+    <Compile Include="Location\MyGPSPosition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Location\MyLocationServer.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Drones\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
