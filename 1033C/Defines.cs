@@ -18,6 +18,8 @@ namespace _1033C {
 
         public static int DEFAULT_DRONESERVER_LOCALPORT = 60123;
 
-        public static System.Net.IPAddress DEFAULT_DRONESERVER_LOCALIP = System.Net.IPAddress.Any;
+        public static System.Net.IPAddress DEFAULT_DRONESERVER_LISTENERIP = System.Net.IPAddress.Any;
+
+        public static System.Net.IPAddress DEFAULT_DRONESERVER_IP = System.Net.IPAddress.Parse( "127.0.0.1" );
     }
 }

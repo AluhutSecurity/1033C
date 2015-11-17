@@ -22,7 +22,7 @@ namespace _1033C.Drones {
             this.server.ClientDataReceived += Server_ClientDataReceived;
 
             this.Port = Defines.DEFAULT_DRONESERVER_LOCALPORT;
-            this.LocalEndPoint = Defines.DEFAULT_DRONESERVER_LOCALIP;
+            this.LocalEndPoint = Defines.DEFAULT_DRONESERVER_LISTENERIP;
 
             this.packetGenerator = new MyDronePacketGenerator( BlakcMakiga.Utils.CRC.CRCMode.CRC16 );
 
@@ -71,7 +71,7 @@ namespace _1033C.Drones {
             if ( !this.packetGenerator.ValidatePacket( packet ) ) return true;
 
 
-            switch(packet.ContentID) {
+            switch ( packet.ContentID ) {
                 case MyDronePacketContent.StatusUpdate:
                     droneSender.State = ( MyDroneState ) BitConverter.ToUInt32( packet.Data, 0 );
                     if ( this.DroneStatusChanged != null ) this.DroneStatusChanged( this, droneSender );
@@ -90,6 +90,10 @@ namespace _1033C.Drones {
 
         public void Stop() {
             this.server.Stop();
+        }
+
+        public MyDrone GetDroneByUID( ulong uid ) {
+            return this.drones.FirstOrDefault( x => x.UID == uid );
         }
 
         public bool RequestPackagePickup( Delivery.MyPackage package ) {
