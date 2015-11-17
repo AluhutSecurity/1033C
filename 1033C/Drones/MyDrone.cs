@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace _1033C.Drones {
-    public class MyDrone {
+    public class MyDrone : INotifyPropertyChanged {
         public ulong UID { get; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public DateTime LastUpdate { get; private set; }
 
@@ -19,6 +22,7 @@ namespace _1033C.Drones {
                 if(this.package != value ) {
                     this.package = value;
                     this.LastUpdate = DateTime.Now;
+                    if ( this.PropertyChanged != null ) this.PropertyChanged( this, new PropertyChangedEventArgs( nameof( Package ) ) );
                 }
             }
         }
@@ -30,11 +34,13 @@ namespace _1033C.Drones {
                 if ( value != this.state ) {
                     LastUpdate = DateTime.Now;
                     this.state = value;
+                    if ( this.PropertyChanged != null ) this.PropertyChanged( this, new PropertyChangedEventArgs( nameof( State ) ) );
                 }
             }
         }
 
         private Location.MyGPSPosition position;
+        
         public Location.MyGPSPosition Position {
             get {
                 return this.position;
@@ -43,6 +49,7 @@ namespace _1033C.Drones {
                 if ( value != this.position ) {
                     LastUpdate = DateTime.Now;
                     this.position = value;
+                    if ( this.PropertyChanged != null ) this.PropertyChanged( this, new PropertyChangedEventArgs( nameof( Position ) ) );
                 }
             }
         }
@@ -53,6 +60,7 @@ namespace _1033C.Drones {
             this.UID = uid;
             this.state = MyDroneState.Online;
             LastUpdate = DateTime.Now;
+            this.Position = new Location.MyGPSPosition( 0, 0, 0 );
         }
 
         public MyDrone( ulong uid, MyDroneState initState ) : this( uid ) {
