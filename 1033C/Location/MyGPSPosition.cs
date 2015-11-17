@@ -17,11 +17,11 @@ namespace _1033C.Location {
 
 
         public static bool operator !=( MyGPSPosition a, MyGPSPosition b ) {
-            if ( a == null || b == null ) return false;
+            if ( null == a || null == b ) return false;
             return ( a.Altitude != b.Altitude ) || ( a.Latitude != b.Latitude ) || ( a.Longitude != b.Longitude );
         }
         public static bool operator ==( MyGPSPosition a, MyGPSPosition b ) {
-            if ( a == null || b == null ) return false;
+            if ( null == a || null == b ) return false;
             return ( a.Altitude == b.Altitude ) && ( a.Latitude == b.Latitude ) && ( a.Longitude == b.Longitude );
         }
 
