@@ -27,7 +27,7 @@ namespace _1033C.Delivery {
 
 
         public static bool operator==(MyPackage a, MyPackage b) {
-            if ( null == ( object ) a || null == ( object ) b ) return false;
+            if ( null == ( object ) a || null == ( object ) b ) return true;
             return a.UID == b.UID;
         }
 
@@ -35,6 +35,15 @@ namespace _1033C.Delivery {
             if ( null == ( object ) a || null == ( object ) b ) return false;
             return a.UID != b.UID;
         }
+
+        public override bool Equals( object obj ) {
+            return base.Equals( obj );
+        }
+
+        public override int GetHashCode() {
+            return base.GetHashCode();
+        }
+
 
         internal MyPackage( ulong uid ) {
             this.UID = uid;
