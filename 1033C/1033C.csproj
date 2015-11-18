@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BlakcMakiga">
-      <HintPath>..\..\..\Visual Studio 2015\Projects\BlakcMakiga\BlakcMakiga\bin\Debug\BlakcMakiga.dll</HintPath>
+      <HintPath>..\..\..\..\Source\Repos\blakcmakiga\BlakcMakiga\bin\Debug\BlakcMakiga.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -60,6 +60,7 @@
     <Compile Include="Location\MyGPSPosition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Location\MyLocationServer.cs" />
+    <Compile Include="Utils\MyServerParameter.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
