@@ -36,9 +36,7 @@ namespace _1033C.Delivery {
             return a.UID != b.UID;
         }
 
-        public override bool Equals( object obj ) {
-            return base.Equals( obj );
-        }
+        public override bool Equals( object obj ) => base.Equals( obj );
 
         public override int GetHashCode() {
             return base.GetHashCode();

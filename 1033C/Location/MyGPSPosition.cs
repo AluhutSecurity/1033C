@@ -29,9 +29,7 @@ namespace _1033C.Location {
             return base.Equals( obj );
         }
 
-        public override int GetHashCode() {
-            return base.GetHashCode();
-        }
+        public override int GetHashCode() => base.GetHashCode();
 
         public MyGPSPosition( double altitude, double latitude, double longitude ) {
             this.Altitude = altitude;
@@ -49,8 +47,6 @@ namespace _1033C.Location {
             return gps;
         }
 
-        internal byte[] Serialize() {
-            return BitConverter.GetBytes( this.Altitude ).Concat( BitConverter.GetBytes( this.Latitude ) ).Concat( BitConverter.GetBytes( this.Longitude ) ).ToArray();
-        }
+        internal byte[] Serialize() => BitConverter.GetBytes( this.Altitude ).Concat( BitConverter.GetBytes( this.Latitude ) ).Concat( BitConverter.GetBytes( this.Longitude ) ).ToArray();
     }
 }

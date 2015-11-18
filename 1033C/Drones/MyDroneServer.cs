@@ -93,9 +93,7 @@ namespace _1033C.Drones {
             this.server.Stop();
         }
 
-        public MyDrone GetDroneByUID( ulong uid ) {
-            return this.drones.FirstOrDefault( x => x.UID == uid );
-        }
+        public MyDrone GetDroneByUID( ulong uid ) => this.drones.FirstOrDefault( x => x.UID == uid );
 
         public bool RequestPackagePickup( Delivery.MyPackage package ) {
             var availableDrones = this.drones.Where( x => x.State == MyDroneState.Ready ).OrderBy( x => x.Capacity );
