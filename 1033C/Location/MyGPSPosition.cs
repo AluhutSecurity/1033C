@@ -25,9 +25,7 @@ namespace _1033C.Location {
             return ( a.Altitude == b.Altitude ) && ( a.Latitude == b.Latitude ) && ( a.Longitude == b.Longitude );
         }
 
-        public override bool Equals( object obj ) {
-            return base.Equals( obj );
-        }
+        public override bool Equals( object obj ) => base.Equals( obj );
 
         public override int GetHashCode() => base.GetHashCode();
 

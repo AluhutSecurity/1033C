@@ -38,9 +38,7 @@ namespace _1033C.Delivery {
 
         public override bool Equals( object obj ) => base.Equals( obj );
 
-        public override int GetHashCode() {
-            return base.GetHashCode();
-        }
+        public override int GetHashCode() => base.GetHashCode();
 
 
         internal MyPackage( ulong uid ) {
