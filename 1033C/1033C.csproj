@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BlakcMakiga">
-      <HintPath>..\..\..\..\Source\Repos\blakcmakiga\BlakcMakiga\bin\Debug\BlakcMakiga.dll</HintPath>
+      <HintPath>..\..\..\Visual Studio 2015\Projects\BlakcMakiga\BlakcMakiga\bin\Debug\BlakcMakiga.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
